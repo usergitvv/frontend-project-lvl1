@@ -8,8 +8,8 @@ env:
   node: true
 
 extends:
-  - eslint:recommended
-  - airbnb-base
+  - "eslint:recommended"
+  - "airbnb-base"
   #- "plugin:jest/recommended"
 parserOptions:
   ecmaVersion: latest
