@@ -10,8 +10,16 @@
 
 #### Start of the game and player's victory (brain-even)
 
-[![Game win](https://asciinema.org/a/M2uXUn07MjgR9koY3DVbQfXXR.svg)](https://asciinema.org/a/M2uXUn07MjgR9koY3DVbQfXXR)
+[![Game-even win](https://asciinema.org/a/M2uXUn07MjgR9koY3DVbQfXXR.svg)](https://asciinema.org/a/M2uXUn07MjgR9koY3DVbQfXXR)
 
 #### Start of the game and player's lose (brain-even)
 
-[![Game lose](https://asciinema.org/a/KIftlqiDFySckXrrfKN0wtyxB.svg)](https://asciinema.org/a/KIftlqiDFySckXrrfKN0wtyxB)
+[![Game-even lose](https://asciinema.org/a/KIftlqiDFySckXrrfKN0wtyxB.svg)](https://asciinema.org/a/KIftlqiDFySckXrrfKN0wtyxB)
+
+#### Start of the game and player's victory (brain-calc)
+
+[![Game-calc win](https://asciinema.org/a/s5jQUoeaps0UFDihENiM51ZO6.svg)](https://asciinema.org/a/s5jQUoeaps0UFDihENiM51ZO6)
+
+#### Start of the game and player's lose (brain-calc)
+
+[![Game-calc lose](https://asciinema.org/a/yytPti9lgFFuw5GABcjD3JCbL.svg)](https://asciinema.org/a/yytPti9lgFFuw5GABcjD3JCbL)
