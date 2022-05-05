@@ -23,3 +23,11 @@
 #### Start of the game and player's lose (brain-calc)
 
 [![Game-calc lose](https://asciinema.org/a/yytPti9lgFFuw5GABcjD3JCbL.svg)](https://asciinema.org/a/yytPti9lgFFuw5GABcjD3JCbL)
+
+#### Start of the game and player's win (brain-gcd)
+
+[![Game-gcd win](https://asciinema.org/a/NevJYGgMVeOxgwf1ej2jdTeGk.svg)](https://asciinema.org/a/NevJYGgMVeOxgwf1ej2jdTeGk)
+
+#### Start of the game and player's lose (brain-gcd)
+
+[![asciicast](https://asciinema.org/a/Ui9BVTs5ChtdYnx12RhXoFJ1x.svg)](https://asciinema.org/a/Ui9BVTs5ChtdYnx12RhXoFJ1x)
