@@ -30,4 +30,12 @@
 
 #### Start of the game and player's lose (brain-gcd)
 
-[![asciicast](https://asciinema.org/a/Ui9BVTs5ChtdYnx12RhXoFJ1x.svg)](https://asciinema.org/a/Ui9BVTs5ChtdYnx12RhXoFJ1x)
+[![Game-gcd lose](https://asciinema.org/a/Ui9BVTs5ChtdYnx12RhXoFJ1x.svg)](https://asciinema.org/a/Ui9BVTs5ChtdYnx12RhXoFJ1x)
+
+#### Start of the game and player's win (brain-progression)
+
+[![Game-progression win](https://asciinema.org/a/los11I4LMUMUTIVY0ci9Tk6vt.svg)](https://asciinema.org/a/los11I4LMUMUTIVY0ci9Tk6vt)
+
+#### Start of the game and player's lose (brain-progression)
+
+[![Game-progression lose](https://asciinema.org/a/66toYvCNRUWDQuueeZPz6rOLi.svg)](https://asciinema.org/a/66toYvCNRUWDQuueeZPz6rOLi)

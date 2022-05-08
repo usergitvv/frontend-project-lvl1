@@ -9,3 +9,8 @@ export const randomIndex = (arr) => {
     const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
 };
+
+export const randomIndexTwo = (arr) => {
+    const rand = Math.floor(Math.random() * arr.length);
+    return rand;
+};
