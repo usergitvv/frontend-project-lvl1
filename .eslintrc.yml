@@ -1,12 +1,9 @@
 ---
 # https://eslint.org/docs/user-guide/configuring#specifying-environments
 
-plugins:
-    - fp
-
 extends:
     - "airbnb-base"
-    - "plugin:fp/recommended"
+    - "eslint:recommended"
 
 env:
     node: true
@@ -24,10 +21,3 @@ rules:
         - ignorePackages
         - js: always
     no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
-    fp/no-loops: 0
-    fp/no-nil: 0
-    fp/no-unused-expression: 0
-    fp/no-let: 0
-    fp/no-throw: 0
-    fp/no-mutation: 0
-    fp/no-mutating-methods: 0
