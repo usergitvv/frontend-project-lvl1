@@ -6,7 +6,7 @@ import {
     randomNum,
 } from '../index.js';
 
-export default function gameEvenCode() {
+export default function gamePrimeCode() {
     let i = 1;
 
     while (i <= 4) {
@@ -14,20 +14,28 @@ export default function gameEvenCode() {
             console.log(`Congratulations, ${name}!`);
             break;
         }
-        const randNum = randomNum(1, 1000);
+        const randNum = randomNum(2, 200);
+        const answerBoolean = () => {
+            if (randNum === 2) return true;
+            if (randNum === 3) return true;
+            for (let j = 2; j < randNum; j += 1) {
+                if (randNum % j === 0) return false;
+            }
+            return true;
+        };
         console.log(`Question: ${randNum}`);
         const answer = readlineSync.question('Your answer: ');
-        if (randNum % 2 === 0 && answer === 'yes') {
+        if (answerBoolean() === true && answer === 'yes') {
             console.log('Correct!');
         }
-        if (randNum % 2 !== 0 && answer === 'no') {
+        if (answerBoolean() !== true && answer === 'no') {
             console.log('Correct!');
         }
-        if (randNum % 2 === 0 && answer === 'no') {
+        if (answerBoolean() === true && answer === 'no') {
             console.log(`'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, ${name}!`);
             break;
         }
-        if (randNum % 2 !== 0 && answer === 'yes') {
+        if (answerBoolean() !== true && answer === 'yes') {
             console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`);
             break;
         }

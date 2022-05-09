@@ -39,3 +39,11 @@
 #### Start of the game and player's lose (brain-progression)
 
 [![Game-progression lose](https://asciinema.org/a/66toYvCNRUWDQuueeZPz6rOLi.svg)](https://asciinema.org/a/66toYvCNRUWDQuueeZPz6rOLi)
+
+#### Start of the game and player's win (brain-prime)
+
+[![Game-prime win](https://asciinema.org/a/TH8gyBfGxGD5P6cmdqRnm562Y.svg)](https://asciinema.org/a/TH8gyBfGxGD5P6cmdqRnm562Y)
+
+#### Start of the game and player's lose (brain-prime)
+
+[![Game-prime lose](https://asciinema.org/a/tpVcRlDQrNTjeTzBxh4DzFfXl.svg)](https://asciinema.org/a/tpVcRlDQrNTjeTzBxh4DzFfXl)
