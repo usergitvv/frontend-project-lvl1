@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
 
-import name from '../src/cli.js';
+import name from '../cli.js';
 
-import makeRandomNum from '../index.js';
+import makeRandomNum from '../utils.js';
 
-export default function gameGcdCode() {
+export default function makeGcdCode() {
   let j = 1;
 
   while (j <= 4) {

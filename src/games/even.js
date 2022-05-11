@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
 
-import name from '../src/cli.js';
+import name from '../cli.js';
 
-import makeRandomNum from '../index.js';
+import makeRandomNum from '../utils.js';
 
-export default function gameEvenCode() {
+export default function makeEvenCode() {
   let i = 1;
 
   while (i <= 4) {

@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 
-import name from '../src/cli.js';
+import name from '../cli.js';
 
-import makeRandomNum from '../index.js';
+import makeRandomNum from '../utils.js';
 
 const workingArray = () => {
   const randNum2 = makeRandomNum(1, 10);
@@ -15,7 +15,7 @@ const workingArray = () => {
   return randArray;
 };
 
-export default function gameProgressionCode() {
+export default function makeProgressionCode() {
   let i = 1;
 
   while (i <= 4) {

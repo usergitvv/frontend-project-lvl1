@@ -2,9 +2,7 @@ import readlineSync from 'readline-sync';
 
 import name from '../src/cli.js';
 
-import {
-  randomNum,
-} from '../index.js';
+import makeRandomNum from '../index.js';
 
 export default function gamePrimeCode() {
   let i = 1;
@@ -14,7 +12,7 @@ export default function gamePrimeCode() {
       console.log(`Congratulations, ${name}!`);
       break;
     }
-    const randNum = randomNum(2, 200);
+    const randNum = makeRandomNum(2, 200);
     const answerBoolean = () => {
       if (randNum === 2) return true;
       if (randNum === 3) return true;
