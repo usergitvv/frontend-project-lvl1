@@ -4,6 +4,8 @@
 
 [![Linter Status](https://github.com/usergitvv/frontend-project-lvl1/workflows/git-hub-check/badge.svg)](https://github.com/usergitvv/frontend-project-lvl1/actions)
 
+[![codeClimate Status](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
 #### Установка игры "Игры разума" на ваш компьютер (операционная система Ubuntu 20.04 LTS)
 
 **Внимание, для корректной работы игры ваша операционная система должна содержать Node.js, установленный глобально**
@@ -19,12 +21,12 @@
 5. Выполните команду _npm link_ (в случае ошибки необходимо использовать sudo и ввести свой пароль для входа в систему ( _sudo npm link_ ))
    Всё, игра локально установлена в вашу систему. Игра содержит несколько вариантов (команды для вызова того или иного варианта, вводится только то, что записано латиницей (на английском)):
 
--   brain-games (приветствие);
--   brain-even ("Проверка на чётность");
--   brain-calc ("Калькулятор");
--   brain-gcd ("Наибольший Общий Делитель");
--   brain-progression ("Арифметическая прогрессия");
--   brain-prime ("Простое ли число?").
+- brain-games (приветствие);
+- brain-even ("Проверка на чётность");
+- brain-calc ("Калькулятор");
+- brain-gcd ("Наибольший Общий Делитель");
+- brain-progression ("Арифметическая прогрессия");
+- brain-prime ("Простое ли число?").
 
 Команды вводятся прямо в терминале, при этом необязательно находиться в директории самой игры. Не забывайте нажимать клавишу **Enter** для ввода своего варианта ответа.
 
