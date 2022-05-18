@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import {
-  workEngineEven,
+  generateGameProcess,
 } from '../src/index.js';
+import makeEvenCode from '../src/games/even.js';
 
-workEngineEven();
+generateGameProcess(makeEvenCode());

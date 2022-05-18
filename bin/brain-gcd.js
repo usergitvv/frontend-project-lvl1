@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+import getGcdAnswers from '../src/games/gcd.js';
 import {
-  workEngineGcd,
+  generateGameProcess,
 } from '../src/index.js';
 
-workEngineGcd();
+generateGameProcess(getGcdAnswers());

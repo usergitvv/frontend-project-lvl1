@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+import getProgressionAnswers from '../src/games/progression.js';
 import {
-  workEngineProgression,
+  generateGameProcess,
 } from '../src/index.js';
 
-workEngineProgression();
+generateGameProcess(getProgressionAnswers());

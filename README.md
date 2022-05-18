@@ -4,7 +4,7 @@
 
 [![Linter Status](https://github.com/usergitvv/frontend-project-lvl1/workflows/git-hub-check/badge.svg)](https://github.com/usergitvv/frontend-project-lvl1/actions)
 
-[![codeClimate Status](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![codeClimate Status](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://github.com/usergitvv/frontend-project-lvl1)
 
 #### Установка игры "Игры разума" на ваш компьютер (операционная система Ubuntu 20.04 LTS)
 

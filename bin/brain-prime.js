@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+import getPrimeAnswers from '../src/games/prime.js';
 import {
-  workEnginePrime,
+  generateGameProcess,
 } from '../src/index.js';
 
-workEnginePrime();
+generateGameProcess(getPrimeAnswers());

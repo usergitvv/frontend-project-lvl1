@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import {
-  makeGreeting,
+  name,
 } from '../src/index.js';
 
-makeGreeting();
+console.log(`Hello, ${name}!`);

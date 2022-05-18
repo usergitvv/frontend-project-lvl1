@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import {
-  workEngineCalc,
+  generateGameProcess,
 } from '../src/index.js';
+import makeWorkingExpressionArr from '../src/games/calc.js';
 
-workEngineCalc();
+generateGameProcess(makeWorkingExpressionArr());
