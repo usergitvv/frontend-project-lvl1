@@ -21,7 +21,7 @@ const generateWorkingArray = () => {
 
 function generateStringForWorkingArr() {
   let i = 1;
-  while (i < 4) {
+  while (i < cycleIterations) {
     generateWorkingArray();
     i += 1;
   }
