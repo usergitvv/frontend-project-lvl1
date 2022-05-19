@@ -2,7 +2,7 @@
 
 import getPrimeAnswers from '../src/games/prime.js';
 import {
-  generateGameProcess,
+  runGameProcess,
 } from '../src/index.js';
 
-generateGameProcess(getPrimeAnswers());
+runGameProcess(getPrimeAnswers());

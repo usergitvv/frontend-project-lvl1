@@ -1,6 +1,6 @@
 import getRandomNumber from '../utils.js';
 import {
-  cycleIterations,
+  iterationsCount,
 } from '../index.js';
 
 const progressionCondition = 'What number is missing in the progression?';
@@ -21,7 +21,7 @@ const generateWorkingArray = () => {
 
 function generateStringForWorkingArr() {
   let i = 1;
-  while (i < cycleIterations) {
+  while (i < iterationsCount) {
     generateWorkingArray();
     i += 1;
   }
@@ -35,7 +35,7 @@ const workingArrayPieces = [pieceWorkingArrOne, pieceWorkingArrTwo, workingArray
 
 export default function getProgressionAnswers() {
   let i = 1;
-  while (i < cycleIterations) {
+  while (i < iterationsCount) {
     const copyWorkingArray = workingArrayPieces[i - 1];
     const valueIndex = getRandomNumber(0, copyWorkingArray.length - 1);
     const elemIndex = copyWorkingArray[valueIndex];

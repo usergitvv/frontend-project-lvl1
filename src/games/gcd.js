@@ -1,4 +1,4 @@
-import { cycleIterations } from '../index.js';
+import { iterationsCount } from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const gcdCondition = 'Find the greatest common divisor of given numbers.';
@@ -24,7 +24,7 @@ function generateGcdResults() {
 
 const getGcdAnswers = () => {
   let i = 1;
-  while (i < cycleIterations) {
+  while (i < iterationsCount) {
     generateGcdResults();
     i += 1;
   }

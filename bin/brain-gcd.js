@@ -2,7 +2,7 @@
 
 import getGcdAnswers from '../src/games/gcd.js';
 import {
-  generateGameProcess,
+  runGameProcess,
 } from '../src/index.js';
 
-generateGameProcess(getGcdAnswers());
+runGameProcess(getGcdAnswers());

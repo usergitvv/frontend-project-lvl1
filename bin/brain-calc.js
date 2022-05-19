@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import {
-  generateGameProcess,
+  runGameProcess,
 } from '../src/index.js';
 import makeWorkingExpressionArr from '../src/games/calc.js';
 
-generateGameProcess(makeWorkingExpressionArr());
+runGameProcess(makeWorkingExpressionArr());

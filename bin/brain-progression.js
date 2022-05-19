@@ -2,7 +2,7 @@
 
 import getProgressionAnswers from '../src/games/progression.js';
 import {
-  generateGameProcess,
+  runGameProcess,
 } from '../src/index.js';
 
-generateGameProcess(getProgressionAnswers());
+runGameProcess(getProgressionAnswers());

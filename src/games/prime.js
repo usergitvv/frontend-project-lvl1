@@ -1,6 +1,6 @@
 import getRandomNumber from '../utils.js';
 import {
-  cycleIterations,
+  iterationsCount,
 } from '../index.js';
 
 const primeCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -26,7 +26,7 @@ function generatePrimeResults() {
 
 const getPrimeAnswers = () => {
   let i = 1;
-  while (i < cycleIterations) {
+  while (i < iterationsCount) {
     generatePrimeResults();
     i += 1;
   }

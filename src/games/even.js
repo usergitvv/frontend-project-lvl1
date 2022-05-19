@@ -1,20 +1,22 @@
 import getRandomNumber from '../utils.js';
-import {
-  cycleIterations,
-} from '../index.js';
+// import {
+//   iterationsCount,
+// } from '../index.js';
 
 const evenCondition = 'Answer "yes" if the number is even, otherwise answer "no".';
+const arrOfRandNumbers = [];
 
 const makeEvenCode = () => {
   let randNum = null;
   const evenResults = [evenCondition];
-  let i = 1;
-  while (i <= cycleIterations) {
-    if (i === cycleIterations) break;
+  let i = 0;
+  while (i <= 3) {
+    if (i === 3) break;
     randNum = getRandomNumber(1, 1000);
-    evenResults.push(randNum);
+    arrOfRandNumbers.push(randNum);
     i += 1;
   }
+  evenResults.push(arrOfRandNumbers);
   return evenResults;
 };
 

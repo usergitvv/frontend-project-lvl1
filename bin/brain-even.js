@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import {
-  generateGameProcess,
+  runGameProcess,
 } from '../src/index.js';
 import makeEvenCode from '../src/games/even.js';
 
-generateGameProcess(makeEvenCode());
+runGameProcess(makeEvenCode());

@@ -1,6 +1,6 @@
 import getRandomNumber from '../utils.js';
 import {
-  cycleIterations,
+  iterationsCount,
 } from '../index.js';
 
 const calcCondition = 'What is the result of the expression?';
@@ -8,7 +8,7 @@ const calcCondition = 'What is the result of the expression?';
 const getArrOfExpressions = () => {
   const arrOfExpressions = [];
   let i = 1;
-  while (i < cycleIterations) {
+  while (i < iterationsCount) {
     const numOne = getRandomNumber(1, 100);
     const numTwo = getRandomNumber(1, 100);
     const expressionPlus = `${numOne} + ${numTwo}`;
@@ -25,7 +25,7 @@ const getArrOfExpressions = () => {
 const makeWorkingExpressionArr = () => {
   const calcResults = [calcCondition];
   let i = 1;
-  while (i < cycleIterations) {
+  while (i < iterationsCount) {
     const copyArr = getArrOfExpressions();
     const randIndex = copyArr[getRandomNumber(0, copyArr.length - 1)];
     calcResults.push(randIndex);
