@@ -37,25 +37,28 @@ const getQuestionsArr = () => {
 };
 getQuestionsArr();
 
+const isSymbol = (sign, index) => {
+  let isSymbolAnswer;
+  if (questionsCalcArr[index].includes(sign) === true) isSymbolAnswer = true;
+  return isSymbolAnswer;
+};
+
 const getRightAnswers = () => {
   let resultOfQuestion;
   let elemOfQuestionArr;
   let i = 0;
   while (i < iterationsCount) {
-    if (questionsCalcArr[i].includes('+') === true) {
-      elemOfQuestionArr = questionsCalcArr[i].split(' ');
-      resultOfQuestion = Number(elemOfQuestionArr[0])
-          + Number(elemOfQuestionArr[elemOfQuestionArr.length - 1]);
+    elemOfQuestionArr = questionsCalcArr[i].split(' ');
+    const firstArrElem = Number(elemOfQuestionArr[0]);
+    const lastArrElem = Number(elemOfQuestionArr[elemOfQuestionArr.length - 1]);
+    if (isSymbol('+', i)) {
+      resultOfQuestion = firstArrElem + lastArrElem;
     }
-    if (questionsCalcArr[i].includes('-') === true) {
-      elemOfQuestionArr = questionsCalcArr[i].split(' ');
-      resultOfQuestion = Number(elemOfQuestionArr[0])
-        - Number(elemOfQuestionArr[elemOfQuestionArr.length - 1]);
+    if (isSymbol('-', i)) {
+      resultOfQuestion = firstArrElem - lastArrElem;
     }
-    if (questionsCalcArr[i].includes('*') === true) {
-      elemOfQuestionArr = questionsCalcArr[i].split(' ');
-      resultOfQuestion = Number(elemOfQuestionArr[0])
-          * Number(elemOfQuestionArr[elemOfQuestionArr.length - 1]);
+    if (isSymbol('*', i)) {
+      resultOfQuestion = firstArrElem * lastArrElem;
     }
     i += 1;
     rightCalcAnswersArr.push(String(resultOfQuestion));
