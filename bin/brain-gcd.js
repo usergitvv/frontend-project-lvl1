@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import getGcdAnswers from '../src/games/gcd.js';
 import {
   runGameProcess,
 } from '../src/index.js';
+import getGcdResults from '../src/games/gcd.js';
 
-runGameProcess(getGcdAnswers());
+runGameProcess(getGcdResults());

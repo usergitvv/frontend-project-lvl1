@@ -1,23 +1,46 @@
 import getRandomNumber from '../utils.js';
-// import {
-//   iterationsCount,
-// } from '../index.js';
+import {
+  iterationsCount,
+} from '../index.js';
 
 const evenCondition = 'Answer "yes" if the number is even, otherwise answer "no".';
-const arrOfRandNumbers = [];
+const questionsEvenArr = [];
+const rightEvenAnswersArr = [];
+const evenResults = [evenCondition];
 
-const makeEvenCode = () => {
+const getQuestionsArr = () => {
   let randNum = null;
-  const evenResults = [evenCondition];
   let i = 0;
-  while (i <= 3) {
-    if (i === 3) break;
+  while (i <= iterationsCount) {
+    if (i === iterationsCount) break;
     randNum = getRandomNumber(1, 1000);
-    arrOfRandNumbers.push(randNum);
+    questionsEvenArr.push(String(randNum));
     i += 1;
   }
-  evenResults.push(arrOfRandNumbers);
+  return questionsEvenArr;
+};
+getQuestionsArr();
+
+const getRightAnswers = () => {
+  let rightAnswer;
+  let i = 0;
+  while (i < iterationsCount) {
+    if (Number(questionsEvenArr[i]) % 2 === 0) {
+      rightAnswer = 'yes';
+    } else {
+      rightAnswer = 'no';
+    }
+    rightEvenAnswersArr.push(rightAnswer);
+    i += 1;
+  }
+  return rightEvenAnswersArr;
+};
+getRightAnswers();
+
+const getEvenResults = () => {
+  evenResults.push(questionsEvenArr);
+  evenResults.push(rightEvenAnswersArr);
   return evenResults;
 };
 
-export default makeEvenCode;
+export default getEvenResults;

@@ -4,48 +4,54 @@ import {
 } from '../index.js';
 
 const progressionCondition = 'What number is missing in the progression?';
-const workingArray = [];
-const terminalStringArray = [];
+const workingProgressArray = [];
 const elemIndexArray = [];
+const questionsProgressArr = [];
 const progressionResults = [progressionCondition];
 
-const generateWorkingArray = () => {
+const generateWorkingArr = () => {
   const randNum = getRandomNumber(1, 10);
   let arrElem = getRandomNumber(1, 100);
   for (let i = 1; i <= 10; i += 1) {
     arrElem += randNum;
-    workingArray.push(arrElem);
+    workingProgressArray.push(arrElem);
   }
-  return workingArray;
+  return workingProgressArray;
 };
 
-function generateStringForWorkingArr() {
-  let i = 1;
+function increaseDataForWorkingArr() {
+  let i = 0;
   while (i < iterationsCount) {
-    generateWorkingArray();
+    generateWorkingArr();
     i += 1;
   }
-  return workingArray;
+  return workingProgressArray;
 }
+increaseDataForWorkingArr();
 
-generateStringForWorkingArr();
-const pieceWorkingArrOne = workingArray.splice(20, 10);
-const pieceWorkingArrTwo = workingArray.splice(0, 10);
-const workingArrayPieces = [pieceWorkingArrOne, pieceWorkingArrTwo, workingArray];
+const pieceWorkProgressArrOne = workingProgressArray.splice(20, 10);
+const pieceWorkProgressArrTwo = workingProgressArray.splice(0, 10);
+const workingArrayPieces = [pieceWorkProgressArrOne, pieceWorkProgressArrTwo, workingProgressArray];
 
-export default function getProgressionAnswers() {
-  let i = 1;
+function generateProgressionAnswers() {
+  let i = 0;
   while (i < iterationsCount) {
-    const copyWorkingArray = workingArrayPieces[i - 1];
+    const copyWorkingArray = workingArrayPieces[i];
     const valueIndex = getRandomNumber(0, copyWorkingArray.length - 1);
     const elemIndex = copyWorkingArray[valueIndex];
     copyWorkingArray.splice(valueIndex, 1, '..');
     const terminalString = copyWorkingArray.join(' ');
-    terminalStringArray.push(terminalString);
-    elemIndexArray.push(elemIndex);
+    questionsProgressArr.push(terminalString);
+    elemIndexArray.push(String(elemIndex));
     i += 1;
   }
-  progressionResults.push(terminalStringArray);
+}
+generateProgressionAnswers();
+
+const getProgressionResults = () => {
+  progressionResults.push(questionsProgressArr);
   progressionResults.push(elemIndexArray);
   return progressionResults;
-}
+};
+
+export default getProgressionResults;

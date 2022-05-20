@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import {
-  name,
-} from '../src/index.js';
+import makeGreeting from '../src/games/games.js';
 
-console.log(`Hello, ${name}!`);
+makeGreeting();

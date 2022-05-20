@@ -3,6 +3,6 @@
 import {
   runGameProcess,
 } from '../src/index.js';
-import makeWorkingExpressionArr from '../src/games/calc.js';
+import getCalcResults from '../src/games/calc.js';
 
-runGameProcess(makeWorkingExpressionArr());
+runGameProcess(getCalcResults());

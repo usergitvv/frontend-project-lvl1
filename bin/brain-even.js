@@ -3,6 +3,6 @@
 import {
   runGameProcess,
 } from '../src/index.js';
-import makeEvenCode from '../src/games/even.js';
+import getEvenResults from '../src/games/even.js';
 
-runGameProcess(makeEvenCode());
+runGameProcess(getEvenResults());

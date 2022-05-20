@@ -1,10 +1,10 @@
-### Hexlet tests and linter status:
+### Hexlet, github and codeclimate test's status:
 
-[![Actions Status](https://github.com/usergitvv/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/usergitvv/frontend-project-lvl1/actions)
+[![Hexlet Status](https://github.com/usergitvv/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/usergitvv/frontend-project-lvl1/actions)
 
-[![Linter Status](https://github.com/usergitvv/frontend-project-lvl1/workflows/git-hub-check/badge.svg)](https://github.com/usergitvv/frontend-project-lvl1/actions)
+[![Github Status](https://github.com/usergitvv/frontend-project-lvl1/workflows/git-hub-check/badge.svg)](https://github.com/usergitvv/frontend-project-lvl1/actions)
 
-[![codeClimate Status](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/usergitvv/frontend-project-lvl1/maintainability)
+[![Maintainability status](https://api.codeclimate.com/v1/badges/3a2c788b621ec8fde3df/maintainability)](https://codeclimate.com/github/usergitvv/frontend-project-lvl1/maintainability)
 
 #### Установка игры "Игры разума" на ваш компьютер (операционная система Ubuntu 20.04 LTS)
 
