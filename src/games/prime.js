@@ -4,47 +4,36 @@ import {
 } from '../index.js';
 
 const primeCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const questionsPrimeArr = [];
-const booleanAnswers = [];
-const rightPrimeAnswersArr = [];
-const primeResults = [primeCondition];
+const resultsOfGcdRounds = [];
+const gamePrimeResults = [primeCondition];
+const isPrime = (number, devider) => (number % devider === 0 ? 'no' : 'yes');
 
-function generatePrimeResults() {
+const generatePrimeResults = () => {
   let i = 0;
   while (i < iterationsCount) {
-    const randNumber = getRandomNumber(2, 200);
-    const makeAnswerBoolean = () => {
-      if (randNumber === 2) return true;
-      if (randNumber === 3) return true;
-      for (let j = 2; j < randNumber; j += 1) {
-        if (randNumber % j === 0) return false;
+    const randPrimeNumber = getRandomNumber(2, 200);
+    const getPrimeAnswer = () => {
+      let primeAnswer;
+      const isPrimeArr = [];
+      for (let j = 2; j < randPrimeNumber; j += 1) {
+        isPrimeArr.push(isPrime(randPrimeNumber, j));
       }
-      return true;
+      if (isPrimeArr.includes('no')) {
+        primeAnswer = 'no';
+      } else primeAnswer = 'yes';
+      return primeAnswer;
     };
-    booleanAnswers.push(makeAnswerBoolean());
-    questionsPrimeArr.push(String(randNumber));
+    const rightPrimeAnswer = getPrimeAnswer();
+    resultsOfGcdRounds.push([String(randPrimeNumber), String(rightPrimeAnswer)]);
     i += 1;
   }
-  return (booleanAnswers, questionsPrimeArr);
-}
-generatePrimeResults();
-
-const getRightAnswers = () => {
-  let rightAnswer;
-  let i = 0;
-  while (i < iterationsCount) {
-    if (booleanAnswers[i] === true) rightAnswer = 'yes';
-    else rightAnswer = 'no';
-    rightPrimeAnswersArr.push(rightAnswer);
-    i += 1;
-  }
-  return rightPrimeAnswersArr;
+  return resultsOfGcdRounds;
 };
-getRightAnswers();
 
 const getPrimeResults = () => {
-  primeResults.push(questionsPrimeArr, rightPrimeAnswersArr);
-  return primeResults;
+  const arrPrimeQuestionsAnswers = generatePrimeResults();
+  gamePrimeResults.push(arrPrimeQuestionsAnswers);
+  return gamePrimeResults;
 };
 
 export default getPrimeResults;

@@ -4,73 +4,48 @@ import {
 } from '../index.js';
 
 const calcCondition = 'What is the result of the expression?';
-const questionsCalcArr = [];
-const rightCalcAnswersArr = [];
-const calcResults = [calcCondition];
+const resultsOfCalcRounds = [];
+const gameCalcResults = [calcCondition];
 
-const getArrOfExpressions = () => {
-  const arrOfExpressions = [];
-  let i = 0;
-  while (i < iterationsCount) {
-    const numOne = getRandomNumber(1, 100);
-    const numTwo = getRandomNumber(1, 100);
-    const expressionPlus = `${numOne} + ${numTwo}`;
-    const expressionMinus = `${numOne} - ${numTwo}`;
-    const expressionMultiplying = `${numOne} * ${numTwo}`;
-    arrOfExpressions.push(expressionPlus);
-    arrOfExpressions.push(expressionMinus);
-    arrOfExpressions.push(expressionMultiplying);
-    i += 1;
-  }
-  return arrOfExpressions;
+const getMathOperator = () => {
+  const strOperators = ['+', '-', '*'];
+  const randomOperator = strOperators[getRandomNumber(0, strOperators.length - 1)];
+  return randomOperator;
 };
 
-const getQuestionsArr = () => {
-  let i = 0;
-  while (i < iterationsCount) {
-    const copyArr = getArrOfExpressions();
-    const randIndex = copyArr[getRandomNumber(0, copyArr.length - 1)];
-    questionsCalcArr.push(randIndex);
-    i += 1;
-  }
-  return questionsCalcArr;
-};
-getQuestionsArr();
-
-const isSymbol = (sign, index) => {
-  let isSymbolAnswer;
-  if (questionsCalcArr[index].includes(sign) === true) isSymbolAnswer = true;
-  return isSymbolAnswer;
-};
-
-const getRightAnswers = () => {
+const generateCalcResults = () => {
   let resultOfQuestion;
-  let elemOfQuestionArr;
+  let questionString;
   let i = 0;
   while (i < iterationsCount) {
-    elemOfQuestionArr = questionsCalcArr[i].split(' ');
-    const firstArrElem = Number(elemOfQuestionArr[0]);
-    const lastArrElem = Number(elemOfQuestionArr[elemOfQuestionArr.length - 1]);
-    if (isSymbol('+', i)) {
-      resultOfQuestion = firstArrElem + lastArrElem;
-    }
-    if (isSymbol('-', i)) {
-      resultOfQuestion = firstArrElem - lastArrElem;
-    }
-    if (isSymbol('*', i)) {
-      resultOfQuestion = firstArrElem * lastArrElem;
+    const randCalcNumOne = getRandomNumber(1, 100);
+    const randCalcNumTwo = getRandomNumber(1, 100);
+    switch (getMathOperator()) {
+      case '+':
+        resultOfQuestion = randCalcNumOne + randCalcNumTwo;
+        questionString = `${randCalcNumOne} + ${randCalcNumTwo}`;
+        break;
+      case '-':
+        resultOfQuestion = randCalcNumOne - randCalcNumTwo;
+        questionString = `${randCalcNumOne} - ${randCalcNumTwo}`;
+        break;
+      case '*':
+        resultOfQuestion = randCalcNumOne * randCalcNumTwo;
+        questionString = `${randCalcNumOne} * ${randCalcNumTwo}`;
+        break;
+      default:
+        throw new Error(`Unknown order state: '${getMathOperator}'!`);
     }
     i += 1;
-    rightCalcAnswersArr.push(String(resultOfQuestion));
+    resultsOfCalcRounds.push([String(questionString), String(resultOfQuestion)]);
   }
-  return rightCalcAnswersArr;
+  return resultsOfCalcRounds;
 };
-getRightAnswers();
 
 const getCalcResults = () => {
-  calcResults.push(questionsCalcArr);
-  calcResults.push(rightCalcAnswersArr);
-  return calcResults;
+  const arrCalcQuestionsAnswers = generateCalcResults();
+  gameCalcResults.push(arrCalcQuestionsAnswers);
+  return gameCalcResults;
 };
 
 export default getCalcResults;

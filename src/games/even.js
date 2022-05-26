@@ -4,43 +4,26 @@ import {
 } from '../index.js';
 
 const evenCondition = 'Answer "yes" if the number is even, otherwise answer "no".';
-const questionsEvenArr = [];
-const rightEvenAnswersArr = [];
-const evenResults = [evenCondition];
+const resultsOfEvenRounds = [];
+const gameEvenResults = [evenCondition];
+const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
-const getQuestionsArr = () => {
-  let randNum = null;
-  let i = 0;
-  while (i <= iterationsCount) {
-    if (i === iterationsCount) break;
-    randNum = getRandomNumber(1, 1000);
-    questionsEvenArr.push(String(randNum));
-    i += 1;
-  }
-  return questionsEvenArr;
-};
-getQuestionsArr();
-
-const getRightAnswers = () => {
-  let rightAnswer;
+const generateEvenResults = () => {
+  let rightEvenAnswer;
   let i = 0;
   while (i < iterationsCount) {
-    if (Number(questionsEvenArr[i]) % 2 === 0) {
-      rightAnswer = 'yes';
-    } else {
-      rightAnswer = 'no';
-    }
-    rightEvenAnswersArr.push(rightAnswer);
+    const randEvenNum = getRandomNumber(1, 1000);
+    rightEvenAnswer = (isEven(randEvenNum));
+    resultsOfEvenRounds.push([String(randEvenNum), rightEvenAnswer]);
     i += 1;
   }
-  return rightEvenAnswersArr;
+  return resultsOfEvenRounds;
 };
-getRightAnswers();
 
 const getEvenResults = () => {
-  evenResults.push(questionsEvenArr);
-  evenResults.push(rightEvenAnswersArr);
-  return evenResults;
+  const arrEvenQuestionsAnswers = generateEvenResults();
+  gameEvenResults.push(arrEvenQuestionsAnswers);
+  return gameEvenResults;
 };
 
 export default getEvenResults;

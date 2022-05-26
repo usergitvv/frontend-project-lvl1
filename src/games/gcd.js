@@ -2,39 +2,32 @@ import { iterationsCount } from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const gcdCondition = 'Find the greatest common divisor of given numbers.';
+const resultsOfGcdRounds = [];
+const gameGcdResults = [gcdCondition];
 
-const rightGcdAnswersArr = [];
-const workingGcdArray = [];
-const gcdResults = [gcdCondition];
-
-function generateGcdResults() {
+const generateGcdResults = () => {
   let i = 0;
   while (i < iterationsCount) {
-    const randNumOne = getRandomNumber(1, 100);
-    const randNumTwo = getRandomNumber(1, 100);
-    workingGcdArray.push(randNumOne, randNumTwo);
-    const correctDevider = () => {
-      const numMin = Math.min(randNumOne, randNumTwo);
-      let result;
+    const randGcdNumOne = getRandomNumber(1, 100);
+    const randGcdNumTwo = getRandomNumber(1, 100);
+    const getCorrectDevider = () => {
+      const numMin = Math.min(randGcdNumOne, randGcdNumTwo);
+      let greatCommonDevider;
       for (let j = 1; j <= numMin; j += 1) {
-        if (randNumOne % j === 0 && randNumTwo % j === 0) result = j;
+        if (randGcdNumOne % j === 0 && randGcdNumTwo % j === 0) greatCommonDevider = j;
       }
-      rightGcdAnswersArr.push(String(result));
+      resultsOfGcdRounds.push([String(`${randGcdNumOne} ${randGcdNumTwo}`), String(greatCommonDevider)]);
     };
     i += 1;
-    correctDevider();
+    getCorrectDevider();
   }
-}
-generateGcdResults();
-
-const pieceWorkGcdArrOne = workingGcdArray.splice(0, 2);
-const pieceWorkGcdArrTwo = workingGcdArray.splice(2, 2);
-const questionsGcdArr = [pieceWorkGcdArrOne.join(' '), workingGcdArray.join(' '), pieceWorkGcdArrTwo.join(' ')];
+  return resultsOfGcdRounds;
+};
 
 const getGcdResults = () => {
-  gcdResults.push(questionsGcdArr);
-  gcdResults.push(rightGcdAnswersArr);
-  return gcdResults;
+  const arrGcdQuestionsAnswers = generateGcdResults();
+  gameGcdResults.push(arrGcdQuestionsAnswers);
+  return gameGcdResults;
 };
 
 export default getGcdResults;
