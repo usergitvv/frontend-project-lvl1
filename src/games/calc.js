@@ -1,51 +1,41 @@
 import getRandomNumber from '../utils.js';
 import {
   iterationsCount,
+  runGameProcess,
 } from '../index.js';
 
 const calcCondition = 'What is the result of the expression?';
-const resultsOfCalcRounds = [];
-const gameCalcResults = [calcCondition];
 
-const getMathOperator = () => {
-  const strOperators = ['+', '-', '*'];
-  const randomOperator = strOperators[getRandomNumber(0, strOperators.length - 1)];
-  return randomOperator;
+const makeMathOperation = (elem1, sign, elem2) => {
+  switch (sign) {
+    case '+':
+      return elem1 + elem2;
+    case '-':
+      return elem1 - elem2;
+    case '*':
+      return elem1 * elem2;
+    default:
+      throw new Error(`Unknown order state: '${makeMathOperation}'!`);
+  }
 };
 
 const generateCalcResults = () => {
+  const resultsOfCalcRounds = [];
+  const strOperators = ['+', '-', '*'];
   let resultOfQuestion;
-  let questionString;
-  let i = 0;
-  while (i < iterationsCount) {
+  for (let i = 0; i < iterationsCount; i += 1) {
     const randCalcNumOne = getRandomNumber(1, 100);
     const randCalcNumTwo = getRandomNumber(1, 100);
-    switch (getMathOperator()) {
-      case '+':
-        resultOfQuestion = randCalcNumOne + randCalcNumTwo;
-        questionString = `${randCalcNumOne} + ${randCalcNumTwo}`;
-        break;
-      case '-':
-        resultOfQuestion = randCalcNumOne - randCalcNumTwo;
-        questionString = `${randCalcNumOne} - ${randCalcNumTwo}`;
-        break;
-      case '*':
-        resultOfQuestion = randCalcNumOne * randCalcNumTwo;
-        questionString = `${randCalcNumOne} * ${randCalcNumTwo}`;
-        break;
-      default:
-        throw new Error(`Unknown order state: '${getMathOperator}'!`);
-    }
-    i += 1;
-    resultsOfCalcRounds.push([String(questionString), String(resultOfQuestion)]);
+    const randomOperator = strOperators[getRandomNumber(0, strOperators.length - 1)];
+    resultOfQuestion = makeMathOperation(randCalcNumOne, randomOperator, randCalcNumTwo);
+    resultsOfCalcRounds.push([String(`${randCalcNumOne} ${randomOperator} ${randCalcNumTwo}`), String(resultOfQuestion)]);
   }
   return resultsOfCalcRounds;
 };
 
-const getCalcResults = () => {
+const runCalcGame = () => {
   const arrCalcQuestionsAnswers = generateCalcResults();
-  gameCalcResults.push(arrCalcQuestionsAnswers);
-  return gameCalcResults;
+  return runGameProcess(calcCondition, arrCalcQuestionsAnswers);
 };
 
-export default getCalcResults;
+export default runCalcGame;

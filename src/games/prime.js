@@ -1,39 +1,41 @@
 import getRandomNumber from '../utils.js';
 import {
   iterationsCount,
+  runGameProcess,
 } from '../index.js';
 
 const primeCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const resultsOfGcdRounds = [];
-const gamePrimeResults = [primeCondition];
-const isPrime = (number, devider) => (number % devider === 0 ? 'no' : 'yes');
+
+const getPrimeAnswer = (number) => {
+  let innerAnswer;
+  for (let j = 2; j < number; j += 1) {
+    if (number % j === 0) {
+      innerAnswer = 'no';
+      return innerAnswer;
+    }
+  }
+  innerAnswer = 'yes';
+  return innerAnswer;
+};
 
 const generatePrimeResults = () => {
-  let i = 0;
-  while (i < iterationsCount) {
-    const randPrimeNumber = getRandomNumber(2, 200);
-    const getPrimeAnswer = () => {
-      let primeAnswer;
-      const isPrimeArr = [];
-      for (let j = 2; j < randPrimeNumber; j += 1) {
-        isPrimeArr.push(isPrime(randPrimeNumber, j));
-      }
-      if (isPrimeArr.includes('no')) {
-        primeAnswer = 'no';
-      } else primeAnswer = 'yes';
-      return primeAnswer;
-    };
-    const rightPrimeAnswer = getPrimeAnswer();
-    resultsOfGcdRounds.push([String(randPrimeNumber), String(rightPrimeAnswer)]);
-    i += 1;
+  const randPrimeNumber = getRandomNumber(2, 200);
+  const rightPrimeAnswer = getPrimeAnswer(randPrimeNumber);
+  return [String(randPrimeNumber), rightPrimeAnswer];
+};
+
+const getResultsOfPrimeRounds = () => {
+  const resultsOfPrimeRounds = [];
+  for (let i = 0; i < iterationsCount; i += 1) {
+    const primeAnswersQuestions = generatePrimeResults();
+    resultsOfPrimeRounds.push(primeAnswersQuestions);
   }
-  return resultsOfGcdRounds;
+  return resultsOfPrimeRounds;
 };
 
-const getPrimeResults = () => {
-  const arrPrimeQuestionsAnswers = generatePrimeResults();
-  gamePrimeResults.push(arrPrimeQuestionsAnswers);
-  return gamePrimeResults;
+const runPrimeGame = () => {
+  const arrPrimeQuestionsAnswers = getResultsOfPrimeRounds();
+  return runGameProcess(primeCondition, arrPrimeQuestionsAnswers);
 };
 
-export default getPrimeResults;
+export default runPrimeGame;

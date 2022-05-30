@@ -1,33 +1,26 @@
-import { iterationsCount } from '../index.js';
+import {
+  iterationsCount,
+  runGameProcess,
+} from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const gcdCondition = 'Find the greatest common divisor of given numbers.';
-const resultsOfGcdRounds = [];
-const gameGcdResults = [gcdCondition];
+const algorithmOfEuclid = (a, b) => (b === 0 ? Math.abs(a) : algorithmOfEuclid(b, a % b));
 
 const generateGcdResults = () => {
-  let i = 0;
-  while (i < iterationsCount) {
+  const resultsOfGcdRounds = [];
+  for (let i = 0; i < iterationsCount; i += 1) {
     const randGcdNumOne = getRandomNumber(1, 100);
     const randGcdNumTwo = getRandomNumber(1, 100);
-    const getCorrectDevider = () => {
-      const numMin = Math.min(randGcdNumOne, randGcdNumTwo);
-      let greatCommonDevider;
-      for (let j = 1; j <= numMin; j += 1) {
-        if (randGcdNumOne % j === 0 && randGcdNumTwo % j === 0) greatCommonDevider = j;
-      }
-      resultsOfGcdRounds.push([String(`${randGcdNumOne} ${randGcdNumTwo}`), String(greatCommonDevider)]);
-    };
-    i += 1;
-    getCorrectDevider();
+    const resultAlgorithmOfEuclid = algorithmOfEuclid(randGcdNumOne, randGcdNumTwo);
+    resultsOfGcdRounds.push([String(`${randGcdNumOne} ${randGcdNumTwo}`), String(resultAlgorithmOfEuclid)]);
   }
   return resultsOfGcdRounds;
 };
 
-const getGcdResults = () => {
+const runGcdGame = () => {
   const arrGcdQuestionsAnswers = generateGcdResults();
-  gameGcdResults.push(arrGcdQuestionsAnswers);
-  return gameGcdResults;
+  return runGameProcess(gcdCondition, arrGcdQuestionsAnswers);
 };
 
-export default getGcdResults;
+export default runGcdGame;
