@@ -1,41 +1,35 @@
 import getRandomNumber from '../utils.js';
 import {
-  iterationsCount,
-  runGameProcess,
+  roundsCount,
+  runEngine,
 } from '../index.js';
 
-const primeCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const getPrimeAnswer = (number) => {
-  let innerAnswer;
-  for (let j = 2; j < number; j += 1) {
-    if (number % j === 0) {
-      innerAnswer = 'no';
-      return innerAnswer;
+const isPrime = (number, devider) => (number % devider === 0);
+
+const generateRounds = () => {
+  const rounds = [];
+  for (let i = 0; i < roundsCount; i += 1) {
+    const question = getRandomNumber(2, 200);
+    let answer;
+    const isPrimeArr = [];
+    for (let j = 2; j < question; j += 1) {
+      const expectedAnswer = isPrime(question, j) ? 'no' : 'yes';
+      isPrimeArr.push(expectedAnswer);
     }
+    if (isPrimeArr.includes('no')) {
+      answer = 'no';
+    } else answer = 'yes';
+    const round = [question, answer];
+    rounds.push(round);
   }
-  innerAnswer = 'yes';
-  return innerAnswer;
-};
-
-const generatePrimeResults = () => {
-  const randPrimeNumber = getRandomNumber(2, 200);
-  const rightPrimeAnswer = getPrimeAnswer(randPrimeNumber);
-  return [String(randPrimeNumber), rightPrimeAnswer];
-};
-
-const getResultsOfPrimeRounds = () => {
-  const resultsOfPrimeRounds = [];
-  for (let i = 0; i < iterationsCount; i += 1) {
-    const primeAnswersQuestions = generatePrimeResults();
-    resultsOfPrimeRounds.push(primeAnswersQuestions);
-  }
-  return resultsOfPrimeRounds;
+  return rounds;
 };
 
 const runPrimeGame = () => {
-  const arrPrimeQuestionsAnswers = getResultsOfPrimeRounds();
-  return runGameProcess(primeCondition, arrPrimeQuestionsAnswers);
+  const rounds = generateRounds();
+  return runEngine(description, rounds);
 };
 
 export default runPrimeGame;

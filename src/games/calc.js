@@ -1,41 +1,42 @@
 import getRandomNumber from '../utils.js';
 import {
-  iterationsCount,
-  runGameProcess,
+  roundsCount,
+  runEngine,
 } from '../index.js';
 
-const calcCondition = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
-const makeMathOperation = (elem1, sign, elem2) => {
+const calculate = (number1, sign, number2) => {
   switch (sign) {
     case '+':
-      return elem1 + elem2;
+      return number1 + number2;
     case '-':
-      return elem1 - elem2;
+      return number1 - number2;
     case '*':
-      return elem1 * elem2;
+      return number1 * number2;
     default:
-      throw new Error(`Unknown order state: '${makeMathOperation}'!`);
+      throw new Error(`Unknown order state, this math operation is absent: ${sign}!`);
   }
 };
 
-const generateCalcResults = () => {
-  const resultsOfCalcRounds = [];
-  const strOperators = ['+', '-', '*'];
-  let resultOfQuestion;
-  for (let i = 0; i < iterationsCount; i += 1) {
-    const randCalcNumOne = getRandomNumber(1, 100);
-    const randCalcNumTwo = getRandomNumber(1, 100);
-    const randomOperator = strOperators[getRandomNumber(0, strOperators.length - 1)];
-    resultOfQuestion = makeMathOperation(randCalcNumOne, randomOperator, randCalcNumTwo);
-    resultsOfCalcRounds.push([String(`${randCalcNumOne} ${randomOperator} ${randCalcNumTwo}`), String(resultOfQuestion)]);
+const generateRounds = () => {
+  const rounds = [];
+  const operators = ['+', '-', '*'];
+  for (let i = 0; i < roundsCount; i += 1) {
+    const numberOne = getRandomNumber(1, 100);
+    const numberTwo = getRandomNumber(1, 100);
+    const randomOperator = operators[getRandomNumber(0, operators.length - 1)];
+    const question = `${numberOne} ${randomOperator} ${numberTwo}`;
+    const answer = calculate(numberOne, randomOperator, numberTwo).toString();
+    const round = [question, answer];
+    rounds.push(round);
   }
-  return resultsOfCalcRounds;
+  return rounds;
 };
 
 const runCalcGame = () => {
-  const arrCalcQuestionsAnswers = generateCalcResults();
-  return runGameProcess(calcCondition, arrCalcQuestionsAnswers);
+  const rounds = generateRounds();
+  return runEngine(description, rounds);
 };
 
 export default runCalcGame;

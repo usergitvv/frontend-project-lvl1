@@ -1,25 +1,26 @@
 import getRandomNumber from '../utils.js';
 import {
-  iterationsCount,
-  runGameProcess,
+  roundsCount,
+  runEngine,
 } from '../index.js';
 
-const evenCondition = 'Answer "yes" if the number is even, otherwise answer "no".';
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 const isEven = (number) => (number % 2 === 0);
 
-const generateEvenResults = () => {
-  const resultsOfEvenRounds = [];
-  for (let i = 0; i < iterationsCount; i += 1) {
-    const randEvenNum = getRandomNumber(1, 1000);
-    const rightEvenAnswer = isEven(randEvenNum) ? 'yes' : 'no';
-    resultsOfEvenRounds.push([String(randEvenNum), rightEvenAnswer]);
+const generateRounds = () => {
+  const rounds = [];
+  for (let i = 0; i < roundsCount; i += 1) {
+    const question = getRandomNumber(1, 1000);
+    const answer = isEven(question) ? 'yes' : 'no';
+    const round = [question, answer];
+    rounds.push(round);
   }
-  return resultsOfEvenRounds;
+  return rounds;
 };
 
 const runEvenGame = () => {
-  const arrCalcQuestionsAnswers = generateEvenResults();
-  return runGameProcess(evenCondition, arrCalcQuestionsAnswers);
+  const rounds = generateRounds();
+  return runEngine(description, rounds);
 };
 
 export default runEvenGame;

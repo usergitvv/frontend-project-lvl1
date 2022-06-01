@@ -1,38 +1,40 @@
 import getRandomNumber from '../utils.js';
 import {
-  iterationsCount,
-  runGameProcess,
+  roundsCount,
+  runEngine,
 } from '../index.js';
 
-const progressionCondition = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
-const generateWorkingArr = () => {
+const makeProgression = (number, step) => {
   const workingArray = [];
-  const randProgressNum = getRandomNumber(1, 10);
-  let arrElem = getRandomNumber(1, 100);
+  let arrElem = number;
   for (let j = 0; j < 10; j += 1) {
-    arrElem += randProgressNum;
+    arrElem += step;
     workingArray.push(arrElem);
   }
   return workingArray;
 };
 
-function generateProgressQuestonsAnswers() {
-  const resultsOfProgressRounds = [];
-  for (let i = 0; i < iterationsCount; i += 1) {
-    const copyWorkingArray = generateWorkingArr();
-    const valueIndex = getRandomNumber(0, (copyWorkingArray.length - 1));
-    const elemIndex = copyWorkingArray[valueIndex];
-    copyWorkingArray.splice(valueIndex, 1, '..');
-    const terminalString = copyWorkingArray.join(' ');
-    resultsOfProgressRounds.push([terminalString, String(elemIndex)]);
+function generateRounds() {
+  const rounds = [];
+  for (let i = 0; i < roundsCount; i += 1) {
+    const progressNum = getRandomNumber(1, 100);
+    const progressStep = getRandomNumber(1, 10);
+    const copyWorkingArray = makeProgression(progressNum, progressStep);
+    const randomIndex = getRandomNumber(0, (copyWorkingArray.length - 1));
+    const answer = copyWorkingArray[randomIndex].toString();
+    copyWorkingArray.splice(randomIndex, 1, '..');
+    const question = copyWorkingArray.join(' ');
+    const round = [question, answer];
+    rounds.push(round);
   }
-  return resultsOfProgressRounds;
+  return rounds;
 }
 
 const runProgressionGame = () => {
-  const arrProgressQuestionsAnswers = generateProgressQuestonsAnswers();
-  return runGameProcess(progressionCondition, arrProgressQuestionsAnswers);
+  const rounds = generateRounds();
+  return runEngine(description, rounds);
 };
 
 export default runProgressionGame;
