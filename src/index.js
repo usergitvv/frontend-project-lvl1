@@ -7,8 +7,8 @@ function runEngine(description, gameResults) {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(description);
-  for (let i = 0; i < roundsCount; i += 1) {
-    const [question, answer] = gameResults[i];
+  //  eslint-disable-next-line no-restricted-syntax
+  for (const [question, answer] of gameResults) {
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (answer !== userAnswer) {

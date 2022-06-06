@@ -11,16 +11,18 @@ const isPrime = (number, devider) => (number % devider === 0);
 const generateRounds = () => {
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
-    const question = getRandomNumber(2, 200);
-    let answer;
-    const isPrimeArr = [];
+    const question = getRandomNumber(2, 500);
+    let answer = 'yes';
     for (let j = 2; j < question; j += 1) {
       const expectedAnswer = isPrime(question, j) ? 'no' : 'yes';
-      isPrimeArr.push(expectedAnswer);
+      switch (expectedAnswer) {
+        case 'no':
+          answer = 'no';
+          break;
+        default:
+          break;
+      }
     }
-    if (isPrimeArr.includes('no')) {
-      answer = 'no';
-    } else answer = 'yes';
     const round = [question, answer];
     rounds.push(round);
   }

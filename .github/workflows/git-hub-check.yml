@@ -1,4 +1,4 @@
-name: git-hub-check
+name: Make_git-hub-checking
 on:
   - push
 
