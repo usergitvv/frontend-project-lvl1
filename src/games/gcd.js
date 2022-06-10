@@ -21,8 +21,8 @@ const generateRounds = () => {
 };
 
 const runGcdGame = () => {
-  const rounds = generateRounds();
-  return runEngine(description, rounds);
+  const results = generateRounds();
+  return runEngine(description, results);
 };
 
 export default runGcdGame;

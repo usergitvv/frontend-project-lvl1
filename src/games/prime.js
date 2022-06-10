@@ -26,8 +26,8 @@ const generateRounds = () => {
 };
 
 const runPrimeGame = () => {
-  const rounds = generateRounds();
-  return runEngine(description, rounds);
+  const results = generateRounds();
+  return runEngine(description, results);
 };
 
 export default runPrimeGame;

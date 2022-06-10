@@ -19,8 +19,8 @@ const generateRounds = () => {
 };
 
 const runEvenGame = () => {
-  const rounds = generateRounds();
-  return runEngine(description, rounds);
+  const results = generateRounds();
+  return runEngine(description, results);
 };
 
 export default runEvenGame;
