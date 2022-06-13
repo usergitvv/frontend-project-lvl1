@@ -23,11 +23,11 @@ const generateRounds = () => {
   const rounds = [];
   const operators = ['+', '-', '*'];
   for (let i = 0; i < roundsCount; i += 1) {
-    const numberOne = getRandomNumber(1, 100);
-    const numberTwo = getRandomNumber(1, 100);
+    const number1 = getRandomNumber(1, 100);
+    const number2 = getRandomNumber(1, 100);
     const randomOperator = operators[getRandomNumber(0, operators.length - 1)];
-    const question = `${numberOne} ${randomOperator} ${numberTwo}`;
-    const answer = calculate(numberOne, randomOperator, numberTwo).toString();
+    const question = `${number1} ${randomOperator} ${number2}`;
+    const answer = calculate(number1, randomOperator, number2).toString();
     const round = [question, answer];
     rounds.push(round);
   }
