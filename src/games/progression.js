@@ -7,14 +7,10 @@ import {
 const description = 'What number is missing in the progression?';
 const progressionLength = 10;
 
-const makeProgression = (firstElem, index, step) => firstElem + index * step;
-
-const getProgressionResult = () => {
+const makeProgression = (number, step) => {
   const progression = [];
-  const progressNum = getRandomNumber(1, 100);
-  const progressStep = getRandomNumber(1, 10);
-  for (let j = 0; j < progressionLength; j += 1) {
-    progression.push(makeProgression(progressNum, j, progressStep));
+  for (let index = 0; index < progressionLength; index += 1) {
+    progression.push(number + index * step);
   }
   return progression;
 };
@@ -22,7 +18,9 @@ const getProgressionResult = () => {
 function generateRounds() {
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
-    const copyProgression = getProgressionResult();
+    const progressNum = getRandomNumber(1, 100);
+    const progressStep = getRandomNumber(1, 10);
+    const copyProgression = makeProgression(progressNum, progressStep);
     const hiddenElementIndex = getRandomNumber(0, (copyProgression.length - 1));
     const answer = copyProgression[hiddenElementIndex].toString();
     copyProgression[hiddenElementIndex] = '..';
